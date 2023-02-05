@@ -17,12 +17,10 @@ ul {
   margin: 0;
   padding-left: 0;
 }
-
 body {
   font-family: 'roboto', sans-serif;
   color: var(--text-color);
 }
-
 .list {
   list-style: none;
 }
@@ -36,11 +34,9 @@ body {
   margin-left: auto;
   margin-right: auto;
 }
-
 img {
   display: block;
 }
-
 /* -------------------------HEADER---------------------- */
 .top-header {
   height: 72px;
@@ -83,22 +79,28 @@ img {
   line-height: 1.5;
   letter-spacing: 0.02em;
   color: var(--desk-color);
+  transition: color 250ms linear;
 }
+
 .top-link:hover,
 .top-link:focus {
   color: var(--button-color);
 }
+
 .top-mail {
   font-size: 16px;
   line-height: 1.5;
   letter-spacing: 0.02em;
   color: var(--text-color);
+  transition: color 250ms linear;
 }
+
 .top-phone {
   font-size: 16px;
   line-height: 1.5;
   letter-spacing: 0.02em;
   color: var(--text-color);
+  transition: color 250ms linear;
 }
 
 .address {
@@ -111,6 +113,22 @@ img {
 .top-phone:is(:hover, :focus),
 .top-mail:is(:hover, :focus) {
   color: var(--button-color);
+}
+
+.current {
+  color: var(--button-color);
+  position: relative;
+}
+
+.current::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -24px;
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background-color: var(--button-color);
 }
 
 /* ------------HERO--------------------- */
@@ -152,11 +170,12 @@ img {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   border-radius: 4px;
   margin-top: 48px;
+  transition: color 250ms linear, background-color 250ms linear;
 }
 .hero-btn:hover,
 .hero-btn:focus {
   color: var(--button-color);
-  background: #ffffff;
+  background-color: #ffffff;
 }
 
 /* -----------------SLOGAN------------------------- */
@@ -308,6 +327,7 @@ img {
   align-items: center;
   justify-content: center;
   border-radius: 50%;
+  transition: background-color 250ms linear;
 }
 
 .team-soc-icon {
@@ -353,10 +373,12 @@ img {
   align-items: center;
   justify-content: center;
   border-radius: 4px;
+  transition: border 250ms linear;
 }
 
 .customers-icon {
   fill: #8e8f99;
+  transition: fill 250ms linear;
 }
 
 .customers-link:is(:hover, :focus) .customers-icon {
@@ -432,6 +454,7 @@ img {
   align-items: center;
   justify-content: center;
   border-radius: 50%;
+  transition: background-color 250ms linear;
 }
 .footer-soc-icon {
   fill: #ffffff;
@@ -488,11 +511,13 @@ img {
   border-radius: 4px;
   padding-left: 24px;
   padding-right: 24px;
+  transition: color 250ms linear, background-color 250ms linear,
+    box-shadow 250ms linear;
 }
 .button-item:hover,
 .button-item:focus {
   color: #ffffff;
-  background: var(--button-color);
+  background-color: var(--button-color);
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 2px 1px rgba(0, 0, 0, 0.08),
     0px 2px 2px rgba(0, 0, 0, 0.12);
 }
@@ -508,6 +533,7 @@ img {
 .portfolio-item {
   outline: 0.5px solid #f4f4fd;
   width: calc((100% - 48px) / 3);
+  
 }
 .subtitle-portfolio {
   font-weight: 500;
@@ -527,9 +553,38 @@ img {
 .portfolio-focus {
   display: inline-block;
   text-decoration: none;
+  transition: box-shadow 250ms linear;
 }
 
 .portfolio-focus:is(:hover, :focus) {
   cursor: pointer;
   box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08);
+
+}
+
+.portfolio-text {
+  position: absolute;
+  top: 0;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  color: #f4f4fd;
+  background-color: var(--button-color);
+  padding-top: 40px; 
+  padding-left: 32px;
+  padding-right: 32px;
+  height: 100%;
+  transform: translateY(100%);
+  transition: transform 250ms linear;
+  overflow: auto;
+}
+
+.portfolio-text-box{
+  position: relative;
+  overflow: hidden;
+}
+
+.portfolio-focus:is(:hover, :focus) .portfolio-text{
+  transform: translateY(0);
 }
